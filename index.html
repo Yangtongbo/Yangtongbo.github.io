@@ -1,295 +1,512 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="杨童博的个人主页，关注网络安全、安全开发、Web 安全、Linux 与密码学。">
-  <title>杨童博 | Cybersecurity</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Oliver Yang 的个人主页，关注网络安全、安全工程、Web 安全与后端开发。" />
+  <meta name="theme-color" content="#07111f" />
+  <title>Oliver Yang | Cybersecurity</title>
   <style>
     :root {
-      --bg: #07111f;
-      --panel: rgba(12, 25, 42, 0.92);
-      --panel-soft: rgba(17, 34, 54, 0.78);
-      --text: #e7edf5;
-      --muted: #94a3b8;
-      --accent: #44d7b6;
-      --accent-soft: rgba(68, 215, 182, 0.12);
-      --border: rgba(148, 163, 184, 0.18);
+      --bg: #06101d;
+      --bg-soft: #0b1728;
+      --panel: rgba(13, 27, 45, 0.88);
+      --panel-2: rgba(10, 23, 39, 0.82);
+      --line: rgba(130, 170, 210, 0.18);
+      --text: #ecf5ff;
+      --muted: #9fb3c8;
+      --cyan: #64e7ff;
+      --green: #86efac;
+      --blue: #8da8ff;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      min-height: 100vh;
-      font-family: Inter, "Segoe UI", Arial, sans-serif;
-      line-height: 1.75;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       background:
-        radial-gradient(circle at top right, rgba(68, 215, 182, 0.08), transparent 34%),
-        linear-gradient(145deg, #050b14 0%, var(--bg) 50%, #091827 100%);
+        radial-gradient(circle at 12% 8%, rgba(100, 231, 255, 0.10), transparent 28%),
+        radial-gradient(circle at 88% 18%, rgba(141, 168, 255, 0.10), transparent 30%),
+        linear-gradient(180deg, #06101d 0%, #081321 48%, #06101c 100%);
       color: var(--text);
+      line-height: 1.7;
     }
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 64px 20px;
+    a { color: inherit; }
+    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(16px);
+      background: rgba(7, 17, 31, 0.74);
+      border-bottom: 1px solid var(--line);
     }
 
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 42px;
-      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
-      backdrop-filter: blur(12px);
+    .nav-inner {
+      min-height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 18px rgba(134, 239, 172, 0.8);
+    }
+
+    .nav-links { display: flex; gap: 24px; }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.94rem;
+    }
+    .nav-links a:hover { color: var(--cyan); }
+
+    .hero {
+      min-height: 78vh;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 56px;
+      padding: 96px 0 72px;
     }
 
     .eyebrow {
-      margin: 0 0 10px;
-      color: var(--accent);
-      font-family: Consolas, "Courier New", monospace;
-      font-size: 0.9rem;
-      letter-spacing: 0.08em;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 12px;
+      border: 1px solid rgba(100, 231, 255, 0.26);
+      border-radius: 999px;
+      color: var(--cyan);
+      background: rgba(100, 231, 255, 0.06);
+      font-size: 0.88rem;
+      margin-bottom: 22px;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(2.1rem, 6vw, 3.8rem);
-      line-height: 1.08;
+      font-size: clamp(3rem, 8vw, 6.2rem);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, var(--cyan), var(--blue), var(--green));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      margin: 26px 0 0;
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.07rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary {
+      background: linear-gradient(135deg, rgba(100, 231, 255, .18), rgba(141, 168, 255, .18));
+      border-color: rgba(100, 231, 255, .38);
+    }
+    .btn-secondary { color: var(--muted); }
+    .btn-secondary:hover { border-color: rgba(134, 239, 172, .32); color: var(--text); }
+
+    .terminal {
+      border: 1px solid var(--line);
+      background: rgba(5, 13, 24, .90);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      transform: rotate(1deg);
+    }
+
+    .terminal-head {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255,255,255,0.025);
+    }
+
+    .dot { width: 10px; height: 10px; border-radius: 50%; background: #39506a; }
+    .terminal-title { margin-left: 8px; color: #6f8498; font-size: .8rem; }
+    .terminal-body {
+      padding: 22px;
+      min-height: 318px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: .92rem;
+      color: #b8cadb;
+    }
+    .prompt { color: var(--green); }
+    .command { color: var(--cyan); }
+    .output { color: #b8cadb; margin: 5px 0 18px; }
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 1.05em;
+      background: var(--cyan);
+      vertical-align: -2px;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    section { padding: 82px 0; }
+    .section-kicker {
+      margin: 0 0 8px;
+      color: var(--cyan);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: .88rem;
+    }
+    h2 {
+      margin: 0 0 28px;
+      font-size: clamp(2rem, 5vw, 3.35rem);
       letter-spacing: -0.04em;
     }
+    .section-lead { color: var(--muted); max-width: 800px; margin: -8px 0 34px; }
 
-    h1 span {
-      color: var(--accent);
+    .grid { display: grid; gap: 18px; }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+    .card {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--panel), var(--panel-2));
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 14px 50px rgba(0,0,0,.12);
     }
+    .card h3 { margin: 0 0 8px; font-size: 1.08rem; }
+    .card p { color: var(--muted); margin: 0; font-size: .94rem; }
+    .icon { font-size: 1.35rem; margin-bottom: 14px; }
 
-    .subtitle {
-      margin: 18px 0 0;
-      color: var(--muted);
-      font-size: 1.05rem;
+    .project-card { display: flex; flex-direction: column; min-height: 275px; }
+    .project-tag {
+      display: inline-flex;
+      width: fit-content;
+      margin-bottom: 18px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(141, 168, 255, .22);
+      color: #b6c6ff;
+      background: rgba(141, 168, 255, .07);
+      font-size: .78rem;
+      font-family: "SFMono-Regular", Consolas, monospace;
     }
+    .project-card h3 { font-size: 1.28rem; }
+    .project-card p { flex: 1; }
+    .project-meta { margin-top: 18px; color: #8ca0b5; font-size: .84rem; }
 
-    .tags {
+    .stack {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 24px;
+    }
+    .chip {
+      padding: 8px 12px;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.025);
+      color: #c8d8e8;
+      font-size: .88rem;
     }
 
-    .tag {
-      padding: 7px 12px;
-      border: 1px solid rgba(68, 215, 182, 0.28);
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: #a8f1df;
-      font-family: Consolas, "Courier New", monospace;
-      font-size: 0.84rem;
+    .about-box {
+      display: grid;
+      grid-template-columns: .7fr 1.3fr;
+      gap: 36px;
+      align-items: center;
     }
-
-    section {
-      margin-top: 42px;
+    .avatar {
+      width: min(240px, 100%);
+      aspect-ratio: 1;
+      border-radius: 28px;
+      object-fit: cover;
+      border: 1px solid rgba(100,231,255,.26);
+      box-shadow: 0 20px 70px rgba(0,0,0,.24);
     }
+    .about-copy p { color: var(--muted); margin: 0 0 14px; }
+    .about-copy strong { color: var(--text); }
 
-    h2 {
+    .status-line {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin: 0 0 18px;
-      font-size: 1.28rem;
-    }
-
-    h2::before {
-      content: "//";
-      color: var(--accent);
-      font-family: Consolas, "Courier New", monospace;
-      font-weight: 400;
-    }
-
-    p {
-      margin: 0 0 14px;
-      color: #cbd5e1;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px;
-    }
-
-    .item {
-      padding: 18px;
-      background: var(--panel-soft);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-    }
-
-    .item strong {
-      display: block;
-      margin-bottom: 7px;
-      color: #f8fafc;
-    }
-
-    .item span,
-    .item p {
+      margin-top: 18px;
       color: var(--muted);
-      font-size: 0.93rem;
+      font-size: .9rem;
+    }
+    .status-dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 14px rgba(134,239,172,.7);
     }
 
-    .roadmap {
-      margin: 0;
-      padding-left: 1.25rem;
-      color: #cbd5e1;
-    }
-
-    .roadmap li {
-      margin: 9px 0;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .contact {
+    .contact-card {
+      padding: 34px;
       display: flex;
-      flex-wrap: wrap;
-      gap: 14px 22px;
-      padding-top: 6px;
-      font-family: Consolas, "Courier New", monospace;
-      font-size: 0.93rem;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .contact-card p { margin: 8px 0 0; color: var(--muted); }
+
+    footer {
+      padding: 34px 0 52px;
+      color: #6e8297;
+      font-size: .88rem;
+      border-top: 1px solid var(--line);
     }
 
-    .footer {
-      margin-top: 38px;
-      padding-top: 22px;
-      border-top: 1px solid var(--border);
-      color: #64748b;
-      font-size: 0.84rem;
-      font-family: Consolas, "Courier New", monospace;
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 72px; }
+      .terminal { max-width: 620px; transform: none; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-3, .grid-2 { grid-template-columns: 1fr; }
+      .about-box { grid-template-columns: 1fr; }
+      .avatar { width: 160px; }
     }
 
-    @media (max-width: 680px) {
-      .container {
-        padding: 28px 14px;
-      }
-
-      .card {
-        padding: 28px 22px;
-        border-radius: 18px;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
+    @media (max-width: 640px) {
+      .container { width: min(100% - 24px, 1120px); }
+      .nav-links { display: none; }
+      .hero { padding-top: 52px; }
+      .grid-4 { grid-template-columns: 1fr; }
+      .contact-card { align-items: flex-start; flex-direction: column; }
+      section { padding: 64px 0; }
     }
   </style>
 </head>
 <body>
-  <main class="container">
-    <div class="card">
-      <header>
-        <p class="eyebrow">$ whoami</p>
-        <h1>杨童博 <span>/ Yang Tongbo</span></h1>
-        <p class="subtitle">
-          东北大学计算机专业学生，正在向 <strong>Cybersecurity / Security Engineering</strong> 方向持续深入。
-          关注 Web 安全、Linux 与网络协议、密码学、安全开发，以及 AI 与安全的交叉应用。
-        </p>
-        <div class="tags">
-          <span class="tag">Cybersecurity</span>
-          <span class="tag">Web Security</span>
-          <span class="tag">Linux</span>
-          <span class="tag">Computer Networks</span>
-          <span class="tag">Cryptography</span>
-          <span class="tag">Secure Coding</span>
-          <span class="tag">Java</span>
-          <span class="tag">Python</span>
-        </div>
-      </header>
-
-      <section>
-        <h2>关于我</h2>
-        <p>
-          我正在系统补强计算机基础与网络安全能力，希望不仅会“使用工具”，还能够理解漏洞产生的原因、协议与系统的运行机制，以及安全问题背后的工程权衡。
-        </p>
-        <p>
-          当前学习重点包括计算机网络、Linux、安全开发、Web 安全基础和现代密码学，并通过小型实验与项目持续积累可复现的实践成果。
-        </p>
-      </section>
-
-      <section>
-        <h2>Security Focus</h2>
-        <div class="grid">
-          <div class="item">
-            <strong>Web Security</strong>
-            <span>HTTP / Web 基础、常见漏洞原理、安全编码与基础攻防实验。</span>
-          </div>
-          <div class="item">
-            <strong>Network & Linux</strong>
-            <span>TCP/IP、网络协议分析、Linux 使用与系统安全基础。</span>
-          </div>
-          <div class="item">
-            <strong>Cryptography</strong>
-            <span>DES、AES、RSA 等经典算法实现与密码学基础。</span>
-          </div>
-          <div class="item">
-            <strong>Security Engineering</strong>
-            <span>Java / Python 编程、安全开发思维与自动化安全工具实践。</span>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2>项目与实践</h2>
-        <div class="grid">
-          <div class="item">
-            <strong>密码算法实验</strong>
-            <p>实现并学习 DES、AES、RSA，理解对称加密、公钥密码和基础密钥机制。</p>
-          </div>
-          <div class="item">
-            <strong>MRED-Streamlit</strong>
-            <p>音视频多模态情绪识别应用，涉及 Python、模型推理、数据处理与 Streamlit 应用开发。</p>
-          </div>
-          <div class="item">
-            <strong>编译原理课程项目</strong>
-            <p>实现词法分析器与语法分析器，强化对程序语言处理流程与底层机制的理解。</p>
-          </div>
-          <div class="item">
-            <strong>IMDB Sentiment Deep Learning</strong>
-            <p>深度学习文本情感分析项目，用于持续积累机器学习工程与实验能力。</p>
-          </div>
-        </div>
-      </section>
-
-      <section>
-        <h2>Security Roadmap</h2>
-        <ul class="roadmap">
-          <li>搭建可复现的 Web 安全实验环境并整理漏洞原理与防护笔记。</li>
-          <li>完成一个轻量级 Web 安全扫描 / 信息收集工具。</li>
-          <li>完成基于网络流量的协议分析与异常检测实践。</li>
-          <li>补强 Linux、计算机网络、操作系统与数据结构基础。</li>
-          <li>持续将安全学习过程整理为可公开复现的 GitHub 项目。</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>联系与主页</h2>
-        <div class="contact">
-          <span>Email: <a href="mailto:3225431956@qq.com">3225431956@qq.com</a></span>
-          <span>GitHub: <a href="https://github.com/Yangtongbo" target="_blank" rel="noreferrer">@Yangtongbo</a></span>
-        </div>
-      </section>
-
-      <div class="footer">
-        learning_in_public = true; &nbsp; focus = "cybersecurity";
+  <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="#top"><span class="brand-mark"></span>Oliver Yang</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#focus">Security</a>
+        <a href="#projects">Projects</a>
+        <a href="#stack">Stack</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
+  </nav>
+
+  <main id="top">
+    <div class="container hero">
+      <div>
+        <div class="eyebrow">🔐 Cybersecurity · Security Engineering · Backend</div>
+        <h1>Build secure.<br><span class="gradient-text">Think adversarial.</span></h1>
+        <p class="hero-copy">
+          你好，我是杨童博（Oliver Yang），东北大学计算机专业学生。当前重点学习网络安全、安全工程与后端开发，
+          希望把计算机基础、工程实现和安全思维真正连起来，而不是只停留在“会用几个工具”的层面。
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">查看项目</a>
+          <a class="btn btn-secondary" href="https://github.com/Yangtongbo" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+        </div>
+      </div>
+
+      <div class="terminal" aria-label="terminal introduction">
+        <div class="terminal-head">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span class="terminal-title">security-shell</span>
+        </div>
+        <div class="terminal-body">
+          <div><span class="prompt">oliver@security</span>:~$ <span class="command">whoami</span></div>
+          <div class="output">Computer Science Student / Cybersecurity Learner</div>
+
+          <div><span class="prompt">oliver@security</span>:~$ <span class="command">cat focus.txt</span></div>
+          <div class="output">Web Security<br>Network Security<br>Secure Backend<br>Linux & Systems</div>
+
+          <div><span class="prompt">oliver@security</span>:~$ <span class="command">echo $MINDSET</span></div>
+          <div class="output">Understand → Break → Detect → Fix</div>
+
+          <div><span class="prompt">oliver@security</span>:~$ <span class="cursor"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <section id="about">
+      <div class="container">
+        <p class="section-kicker">// about</p>
+        <h2>关于我</h2>
+        <div class="card about-box">
+          <img class="avatar" src="https://avatars.githubusercontent.com/u/145834180?v=4" alt="Oliver Yang GitHub avatar" />
+          <div class="about-copy">
+            <p>
+              我正在建立更完整的<strong>网络安全知识体系</strong>，重点关注 Web 安全、网络协议、Linux、密码学基础与安全开发。
+              相比单纯堆工具，我更希望理解漏洞为什么产生、攻击链如何形成，以及工程上应该怎样检测和修复。
+            </p>
+            <p>
+              同时我保留 Java / Python 与软件工程能力作为基础，希望未来能够向<strong>应用安全、安全开发、安全工程</strong>等方向继续深入。
+            </p>
+            <div class="status-line"><span class="status-dot"></span>Current focus: cybersecurity fundamentals + practical engineering</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="focus">
+      <div class="container">
+        <p class="section-kicker">// security-focus</p>
+        <h2>安全方向</h2>
+        <p class="section-lead">当前学习和实践主线。方向可以很多，但主页不是自助餐盘，先把真正能讲清楚、能做出来的能力放前面。</p>
+        <div class="grid grid-4">
+          <article class="card">
+            <div class="icon">🛡️</div>
+            <h3>Web Security</h3>
+            <p>认证与会话、访问控制、输入验证，以及 SQL Injection、XSS、越权等常见 Web 安全问题。</p>
+          </article>
+          <article class="card">
+            <div class="icon">🌐</div>
+            <h3>Network Security</h3>
+            <p>TCP/IP、HTTP/HTTPS、DNS 等网络基础，并结合流量分析、日志与常见攻击行为理解攻击面。</p>
+          </article>
+          <article class="card">
+            <div class="icon">🐧</div>
+            <h3>Linux & Systems</h3>
+            <p>Linux 环境、进程、权限、日志、服务配置等系统基础，为后续安全分析与工程实践打底。</p>
+          </article>
+          <article class="card">
+            <div class="icon">🔒</div>
+            <h3>Secure Development</h3>
+            <p>从开发者视角理解身份认证、RBAC、审计、异常处理与安全编码，把安全融入后端开发流程。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <p class="section-kicker">// selected-projects</p>
+        <h2>安全项目</h2>
+        <p class="section-lead">重点展示能够体现“发现问题、解释问题、修复问题、验证结果”的项目，而不是把工具名字排成技能咒语。</p>
+        <div class="grid grid-2">
+          <article class="card project-card">
+            <span class="project-tag">APPLICATION SECURITY</span>
+            <h3>Web 应用安全审计与修复</h3>
+            <p>在自建测试环境中梳理认证与接口权限，结合代码审计验证越权、注入与 XSS 风险；针对问题完成修复与复测，并整理风险清单、修复记录和回归用例。</p>
+            <div class="project-meta">Keywords: Web Security · Access Control · XSS · Injection · Secure Coding</div>
+          </article>
+
+          <article class="card project-card">
+            <span class="project-tag">DETECTION / LOG ANALYSIS</span>
+            <h3>Web 访问日志分析与异常检测</h3>
+            <p>使用 Python 解析 Web 访问日志，基于时间窗口和请求特征识别异常访问；设计规则与告警去重，并通过带标签样本评估误报与漏报。</p>
+            <div class="project-meta">Keywords: Python · Log Analysis · Detection · Alerting · Evaluation</div>
+          </article>
+        </div>
+
+        <p class="section-kicker" style="margin-top:48px">// other-engineering</p>
+        <h2 style="font-size:clamp(1.7rem,4vw,2.5rem)">其他工程实践</h2>
+        <div class="grid grid-3">
+          <article class="card project-card">
+            <span class="project-tag">SECURITY / CRYPTOGRAPHY</span>
+            <h3>信息安全密码学实验</h3>
+            <p>围绕 DES、AES、RSA 等经典密码算法进行实现与实验，理解对称加密、公钥密码及基础密码学机制。</p>
+            <div class="project-meta">DES · AES · RSA · Cryptography</div>
+          </article>
+
+          <article class="card project-card">
+            <span class="project-tag">AI / MULTIMODAL</span>
+            <h3>MRED Streamlit</h3>
+            <p>音视频多模态情绪识别应用，对视频与音频进行特征处理和模型推理，并通过 Streamlit 构建交互式应用。</p>
+            <div class="project-meta">Python · Streamlit · Audio · Video · AI</div>
+          </article>
+
+          <article class="card project-card">
+            <span class="project-tag">SYSTEMS / COMPILER</span>
+            <h3>编译原理课程项目</h3>
+            <p>实现词法分析与语法分析相关功能，通过课程项目理解编译流程、形式语言和程序分析的基础机制。</p>
+            <div class="project-meta">Lexer · Parser · Compiler Fundamentals</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="stack">
+      <div class="container">
+        <p class="section-kicker">// stack</p>
+        <h2>技术栈</h2>
+        <div class="card">
+          <div class="stack">
+            <span class="chip">Java</span>
+            <span class="chip">Python</span>
+            <span class="chip">Linux</span>
+            <span class="chip">Git / GitHub</span>
+            <span class="chip">TCP/IP</span>
+            <span class="chip">HTTP / HTTPS</span>
+            <span class="chip">Web Security</span>
+            <span class="chip">Cryptography</span>
+            <span class="chip">SQL</span>
+            <span class="chip">Secure Backend</span>
+            <span class="chip">Log Analysis</span>
+            <span class="chip">Docker</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="card contact-card">
+          <div>
+            <p class="section-kicker">// contact</p>
+            <h2 style="margin-bottom:0">Keep building. Keep learning.</h2>
+            <p>网络安全、后端开发或相关项目交流，可以通过 GitHub 或邮件联系我。</p>
+          </div>
+          <div class="hero-actions" style="margin-top:0">
+            <a class="btn btn-primary" href="mailto:3225431956@qq.com">Email</a>
+            <a class="btn btn-secondary" href="https://github.com/Yangtongbo" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
+
+  <footer>
+    <div class="container">© 2026 Oliver Yang · Cybersecurity · Security Engineering · Backend</div>
+  </footer>
 </body>
 </html>
