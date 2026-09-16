@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Oliver Yang 的个人主页，关注网络安全、安全工程、Web 安全与后端开发。" />
-  <meta name="theme-color" content="#07111f" />
-  <title>Oliver Yang | Cybersecurity</title>
+  <meta name="description" content="Oliver Yang 的个人主页，聚焦 AI Engineering、RAG、异常检测与智能系统开发。" />
+  <meta name="theme-color" content="#08111d" />
+  <title>Oliver Yang | AI Engineering</title>
   <style>
     :root {
-      --bg: #06101d;
-      --bg-soft: #0b1728;
-      --panel: rgba(13, 27, 45, 0.88);
-      --panel-2: rgba(10, 23, 39, 0.82);
-      --line: rgba(130, 170, 210, 0.18);
-      --text: #ecf5ff;
-      --muted: #9fb3c8;
-      --cyan: #64e7ff;
+      --bg: #07111d;
+      --panel: rgba(13, 27, 45, 0.90);
+      --panel-soft: rgba(11, 24, 40, 0.84);
+      --line: rgba(148, 180, 220, 0.18);
+      --text: #edf6ff;
+      --muted: #9fb2c7;
+      --cyan: #67e8f9;
+      --violet: #a78bfa;
       --green: #86efac;
-      --blue: #8da8ff;
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+      --orange: #fdba74;
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.30);
     }
 
     * { box-sizing: border-box; }
@@ -26,24 +26,24 @@
 
     body {
       margin: 0;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at 12% 8%, rgba(100, 231, 255, 0.10), transparent 28%),
-        radial-gradient(circle at 88% 18%, rgba(141, 168, 255, 0.10), transparent 30%),
-        linear-gradient(180deg, #06101d 0%, #081321 48%, #06101c 100%);
       color: var(--text);
       line-height: 1.7;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(103, 232, 249, .10), transparent 27%),
+        radial-gradient(circle at 88% 15%, rgba(167, 139, 250, .12), transparent 30%),
+        linear-gradient(180deg, #06101b 0%, #091421 50%, #06101b 100%);
     }
 
     a { color: inherit; }
-    .container { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .container { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
 
     nav {
       position: sticky;
       top: 0;
-      z-index: 20;
+      z-index: 30;
+      background: rgba(7, 17, 29, .74);
       backdrop-filter: blur(16px);
-      background: rgba(7, 17, 31, 0.74);
       border-bottom: 1px solid var(--line);
     }
 
@@ -60,65 +60,64 @@
       align-items: center;
       gap: 10px;
       font-weight: 800;
-      letter-spacing: 0.02em;
       text-decoration: none;
+      letter-spacing: .01em;
     }
 
-    .brand-mark {
+    .brand-dot {
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 18px rgba(134, 239, 172, 0.8);
+      background: var(--cyan);
+      box-shadow: 0 0 18px rgba(103, 232, 249, .78);
     }
 
     .nav-links { display: flex; gap: 24px; }
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
-      font-size: 0.94rem;
+      font-size: .94rem;
     }
     .nav-links a:hover { color: var(--cyan); }
 
     .hero {
       min-height: 78vh;
       display: grid;
-      grid-template-columns: 1.15fr 0.85fr;
+      grid-template-columns: 1.08fr .92fr;
       align-items: center;
-      gap: 56px;
-      padding: 96px 0 72px;
+      gap: 54px;
+      padding: 92px 0 70px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 9px;
       padding: 7px 12px;
-      border: 1px solid rgba(100, 231, 255, 0.26);
+      border: 1px solid rgba(103, 232, 249, .28);
       border-radius: 999px;
+      background: rgba(103, 232, 249, .06);
       color: var(--cyan);
-      background: rgba(100, 231, 255, 0.06);
-      font-size: 0.88rem;
+      font-size: .88rem;
       margin-bottom: 22px;
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(3rem, 8vw, 6.2rem);
-      line-height: 0.98;
-      letter-spacing: -0.055em;
+      font-size: clamp(3rem, 7.4vw, 6rem);
+      line-height: .98;
+      letter-spacing: -.055em;
     }
 
     .gradient-text {
-      background: linear-gradient(90deg, var(--cyan), var(--blue), var(--green));
+      background: linear-gradient(90deg, var(--cyan), var(--violet), var(--green));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     .hero-copy {
-      margin: 26px 0 0;
       max-width: 720px;
+      margin: 26px 0 0;
       color: var(--muted);
       font-size: 1.07rem;
     }
@@ -142,56 +141,45 @@
       font-weight: 700;
       transition: transform .18s ease, border-color .18s ease, background .18s ease;
     }
-
     .btn:hover { transform: translateY(-2px); }
     .btn-primary {
-      background: linear-gradient(135deg, rgba(100, 231, 255, .18), rgba(141, 168, 255, .18));
-      border-color: rgba(100, 231, 255, .38);
+      border-color: rgba(103, 232, 249, .38);
+      background: linear-gradient(135deg, rgba(103, 232, 249, .16), rgba(167, 139, 250, .15));
     }
     .btn-secondary { color: var(--muted); }
-    .btn-secondary:hover { border-color: rgba(134, 239, 172, .32); color: var(--text); }
 
-    .terminal {
+    .model-card {
       border: 1px solid var(--line);
-      background: rgba(5, 13, 24, .90);
-      border-radius: 18px;
+      border-radius: 20px;
+      background: rgba(6, 15, 26, .91);
       box-shadow: var(--shadow);
       overflow: hidden;
       transform: rotate(1deg);
     }
 
-    .terminal-head {
+    .model-head {
       display: flex;
       align-items: center;
       gap: 8px;
       padding: 14px 16px;
       border-bottom: 1px solid var(--line);
-      background: rgba(255,255,255,0.025);
+      color: #8195aa;
+      font-size: .82rem;
     }
 
     .dot { width: 10px; height: 10px; border-radius: 50%; background: #39506a; }
-    .terminal-title { margin-left: 8px; color: #6f8498; font-size: .8rem; }
-    .terminal-body {
-      padding: 22px;
-      min-height: 318px;
-      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
-      font-size: .92rem;
-      color: #b8cadb;
+    .model-body {
+      padding: 24px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: .91rem;
     }
-    .prompt { color: var(--green); }
-    .command { color: var(--cyan); }
-    .output { color: #b8cadb; margin: 5px 0 18px; }
-    .cursor {
-      display: inline-block;
-      width: 8px;
-      height: 1.05em;
-      background: var(--cyan);
-      vertical-align: -2px;
-      animation: blink 1s step-end infinite;
-    }
-    @keyframes blink { 50% { opacity: 0; } }
 
-    section { padding: 82px 0; }
+    .prompt { color: var(--cyan); }
+    .value { color: var(--green); }
+    .dim { color: #8095aa; }
+    .line { margin-bottom: 14px; }
+
+    section { padding: 80px 0; }
     .section-kicker {
       margin: 0 0 8px;
       color: var(--cyan);
@@ -200,133 +188,200 @@
     }
     h2 {
       margin: 0 0 28px;
-      font-size: clamp(2rem, 5vw, 3.35rem);
-      letter-spacing: -0.04em;
+      font-size: clamp(2rem, 5vw, 3.3rem);
+      letter-spacing: -.04em;
     }
-    .section-lead { color: var(--muted); max-width: 800px; margin: -8px 0 34px; }
+    .section-lead {
+      max-width: 860px;
+      margin: -8px 0 34px;
+      color: var(--muted);
+    }
 
     .grid { display: grid; gap: 18px; }
-    .grid-4 { grid-template-columns: repeat(4, 1fr); }
-    .grid-3 { grid-template-columns: repeat(3, 1fr); }
-    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 
     .card {
       border: 1px solid var(--line);
-      background: linear-gradient(180deg, var(--panel), var(--panel-2));
       border-radius: 18px;
       padding: 24px;
-      box-shadow: 0 14px 50px rgba(0,0,0,.12);
+      background: linear-gradient(180deg, var(--panel), var(--panel-soft));
+      box-shadow: 0 14px 50px rgba(0, 0, 0, .12);
     }
-    .card h3 { margin: 0 0 8px; font-size: 1.08rem; }
-    .card p { color: var(--muted); margin: 0; font-size: .94rem; }
-    .icon { font-size: 1.35rem; margin-bottom: 14px; }
 
-    .project-card { display: flex; flex-direction: column; min-height: 275px; }
-    .project-tag {
+    .card h3 { margin: 0 0 10px; }
+    .card p { margin: 0; color: var(--muted); }
+
+    .project-card {
+      position: relative;
+      overflow: hidden;
+      min-height: 520px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -110px auto;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(103, 232, 249, .13), transparent 67%);
+      pointer-events: none;
+    }
+
+    .project-card.sentinel::after {
+      background: radial-gradient(circle, rgba(167, 139, 250, .15), transparent 67%);
+    }
+
+    .project-label {
       display: inline-flex;
       width: fit-content;
-      margin-bottom: 18px;
       padding: 5px 10px;
+      margin-bottom: 18px;
       border-radius: 999px;
-      border: 1px solid rgba(141, 168, 255, .22);
-      color: #b6c6ff;
-      background: rgba(141, 168, 255, .07);
-      font-size: .78rem;
+      border: 1px solid rgba(103, 232, 249, .23);
+      background: rgba(103, 232, 249, .06);
+      color: #a5f3fc;
       font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: .78rem;
     }
-    .project-card h3 { font-size: 1.28rem; }
-    .project-card p { flex: 1; }
-    .project-meta { margin-top: 18px; color: #8ca0b5; font-size: .84rem; }
+
+    .sentinel .project-label {
+      border-color: rgba(167, 139, 250, .25);
+      background: rgba(167, 139, 250, .07);
+      color: #d6c7ff;
+    }
+
+    .project-name {
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: -.035em;
+    }
+
+    .project-subtitle {
+      margin: 7px 0 22px;
+      color: #c7d5e4;
+      font-weight: 700;
+    }
+
+    .features {
+      display: grid;
+      gap: 10px;
+      margin: 8px 0 24px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .features li {
+      position: relative;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: .94rem;
+    }
+    .features li::before {
+      content: "›";
+      position: absolute;
+      left: 0;
+      color: var(--green);
+      font-weight: 800;
+    }
 
     .stack {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 9px;
+      margin-top: auto;
     }
+
     .chip {
-      padding: 8px 12px;
-      border-radius: 10px;
+      padding: 7px 10px;
       border: 1px solid var(--line);
+      border-radius: 9px;
       background: rgba(255,255,255,.025);
-      color: #c8d8e8;
-      font-size: .88rem;
+      color: #c9d7e6;
+      font-size: .82rem;
     }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 22px;
+    }
+    .metric {
+      padding: 15px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(255,255,255,.02);
+    }
+    .metric strong { display: block; color: var(--text); font-size: .96rem; }
+    .metric span { color: var(--muted); font-size: .79rem; }
 
     .about-box {
       display: grid;
-      grid-template-columns: .7fr 1.3fr;
-      gap: 36px;
+      grid-template-columns: .68fr 1.32fr;
+      gap: 34px;
       align-items: center;
     }
     .avatar {
-      width: min(240px, 100%);
+      width: min(230px, 100%);
       aspect-ratio: 1;
       border-radius: 28px;
       object-fit: cover;
-      border: 1px solid rgba(100,231,255,.26);
+      border: 1px solid rgba(103, 232, 249, .26);
       box-shadow: 0 20px 70px rgba(0,0,0,.24);
     }
-    .about-copy p { color: var(--muted); margin: 0 0 14px; }
+    .about-copy p { margin: 0 0 14px; color: var(--muted); }
     .about-copy strong { color: var(--text); }
 
-    .status-line {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: .9rem;
-    }
-    .status-dot {
-      width: 9px; height: 9px; border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 14px rgba(134,239,172,.7);
-    }
+    .skill-card .icon { font-size: 1.35rem; margin-bottom: 12px; }
+    .skill-card h3 { font-size: 1.02rem; }
+    .skill-card p { font-size: .9rem; }
 
     .contact-card {
-      padding: 34px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
+      padding: 34px;
     }
     .contact-card p { margin: 8px 0 0; color: var(--muted); }
 
     footer {
       padding: 34px 0 52px;
-      color: #6e8297;
-      font-size: .88rem;
+      color: #6d8196;
       border-top: 1px solid var(--line);
+      font-size: .88rem;
     }
 
-    @media (max-width: 900px) {
+    @media (max-width: 920px) {
       .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 72px; }
-      .terminal { max-width: 620px; transform: none; }
+      .model-card { max-width: 640px; transform: none; }
       .grid-4 { grid-template-columns: repeat(2, 1fr); }
-      .grid-3, .grid-2 { grid-template-columns: 1fr; }
       .about-box { grid-template-columns: 1fr; }
       .avatar { width: 160px; }
     }
 
-    @media (max-width: 640px) {
-      .container { width: min(100% - 24px, 1120px); }
+    @media (max-width: 700px) {
+      .container { width: min(100% - 24px, 1160px); }
       .nav-links { display: none; }
-      .hero { padding-top: 52px; }
-      .grid-4 { grid-template-columns: 1fr; }
-      .contact-card { align-items: flex-start; flex-direction: column; }
-      section { padding: 64px 0; }
+      .grid-2, .grid-4, .metric-row { grid-template-columns: 1fr; }
+      .project-card { min-height: auto; }
+      .contact-card { flex-direction: column; align-items: flex-start; }
+      section { padding: 62px 0; }
     }
   </style>
 </head>
 <body>
   <nav>
     <div class="container nav-inner">
-      <a class="brand" href="#top"><span class="brand-mark"></span>Oliver Yang</a>
+      <a class="brand" href="#top"><span class="brand-dot"></span>Oliver Yang</a>
       <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#focus">Security</a>
         <a href="#projects">Projects</a>
-        <a href="#stack">Stack</a>
+        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -335,34 +390,30 @@
   <main id="top">
     <div class="container hero">
       <div>
-        <div class="eyebrow">🔐 Cybersecurity · Security Engineering · Backend</div>
-        <h1>Build secure.<br><span class="gradient-text">Think adversarial.</span></h1>
+        <div class="eyebrow">🤖 AI Engineering · RAG · Anomaly Detection</div>
+        <h1>Build AI.<br><span class="gradient-text">Ship systems.</span></h1>
         <p class="hero-copy">
-          你好，我是杨童博（Oliver Yang），东北大学计算机专业学生。当前重点学习网络安全、安全工程与后端开发，
-          希望把计算机基础、工程实现和安全思维真正连起来，而不是只停留在“会用几个工具”的层面。
+          你好，我是杨童博（Oliver Yang），东北大学计算机专业学生。当前重点投入 AI 工程与智能系统开发，
+          正在围绕企业知识库问答与智能异常检测完成两个完整项目，关注的不只是“模型能跑”，更是检索、推理、评测、部署和系统工程能否真正闭环。
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">查看项目</a>
+          <a class="btn btn-primary" href="#projects">查看核心项目</a>
           <a class="btn btn-secondary" href="https://github.com/Yangtongbo" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
         </div>
       </div>
 
-      <div class="terminal" aria-label="terminal introduction">
-        <div class="terminal-head">
+      <div class="model-card" aria-label="AI engineering profile">
+        <div class="model-head">
           <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span class="terminal-title">security-shell</span>
+          <span style="margin-left:8px">ai-engineer.profile</span>
         </div>
-        <div class="terminal-body">
-          <div><span class="prompt">oliver@security</span>:~$ <span class="command">whoami</span></div>
-          <div class="output">Computer Science Student / Cybersecurity Learner</div>
-
-          <div><span class="prompt">oliver@security</span>:~$ <span class="command">cat focus.txt</span></div>
-          <div class="output">Web Security<br>Network Security<br>Secure Backend<br>Linux & Systems</div>
-
-          <div><span class="prompt">oliver@security</span>:~$ <span class="command">echo $MINDSET</span></div>
-          <div class="output">Understand → Break → Detect → Fix</div>
-
-          <div><span class="prompt">oliver@security</span>:~$ <span class="cursor"></span></div>
+        <div class="model-body">
+          <div class="line"><span class="prompt">name</span> = <span class="value">"Oliver Yang"</span></div>
+          <div class="line"><span class="prompt">focus</span> = [<span class="value">"RAG"</span>, <span class="value">"Anomaly Detection"</span>, <span class="value">"AI Systems"</span>]</div>
+          <div class="line"><span class="prompt">projects</span> = [<span class="value">"DocMind"</span>, <span class="value">"SentinelFlow"</span>]</div>
+          <div class="line"><span class="prompt">backend</span> = <span class="value">"Java / Spring Boot / FastAPI"</span></div>
+          <div class="line"><span class="prompt">infra</span> = <span class="value">"PostgreSQL / Redis / Kafka / Docker"</span></div>
+          <div class="line dim"># turning models into usable engineering systems</div>
         </div>
       </div>
     </div>
@@ -375,115 +426,118 @@
           <img class="avatar" src="https://avatars.githubusercontent.com/u/145834180?v=4" alt="Oliver Yang GitHub avatar" />
           <div class="about-copy">
             <p>
-              我正在建立更完整的<strong>网络安全知识体系</strong>，重点关注 Web 安全、网络协议、Linux、密码学基础与安全开发。
-              相比单纯堆工具，我更希望理解漏洞为什么产生、攻击链如何形成，以及工程上应该怎样检测和修复。
+              我目前主要关注<strong>AI 工程化落地</strong>。相比只训练一个模型，我更感兴趣的是如何把模型放进真实的软件系统里，完成数据接入、检索、推理、评测、监控和部署。
             </p>
             <p>
-              同时我保留 Java / Python 与软件工程能力作为基础，希望未来能够向<strong>应用安全、安全开发、安全工程</strong>等方向继续深入。
+              当前两个核心项目分别覆盖 <strong>RAG 企业知识库</strong> 与 <strong>实时异常检测</strong>，同时结合 Java 后端、Python AI 服务、数据库、消息队列和 Docker，建立完整的工程实现能力。
             </p>
-            <div class="status-line"><span class="status-dot"></span>Current focus: cybersecurity fundamentals + practical engineering</div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="focus">
-      <div class="container">
-        <p class="section-kicker">// security-focus</p>
-        <h2>安全方向</h2>
-        <p class="section-lead">当前学习和实践主线。方向可以很多，但主页不是自助餐盘，先把真正能讲清楚、能做出来的能力放前面。</p>
-        <div class="grid grid-4">
-          <article class="card">
-            <div class="icon">🛡️</div>
-            <h3>Web Security</h3>
-            <p>认证与会话、访问控制、输入验证，以及 SQL Injection、XSS、越权等常见 Web 安全问题。</p>
-          </article>
-          <article class="card">
-            <div class="icon">🌐</div>
-            <h3>Network Security</h3>
-            <p>TCP/IP、HTTP/HTTPS、DNS 等网络基础，并结合流量分析、日志与常见攻击行为理解攻击面。</p>
-          </article>
-          <article class="card">
-            <div class="icon">🐧</div>
-            <h3>Linux & Systems</h3>
-            <p>Linux 环境、进程、权限、日志、服务配置等系统基础，为后续安全分析与工程实践打底。</p>
-          </article>
-          <article class="card">
-            <div class="icon">🔒</div>
-            <h3>Secure Development</h3>
-            <p>从开发者视角理解身份认证、RBAC、审计、异常处理与安全编码，把安全融入后端开发流程。</p>
-          </article>
         </div>
       </div>
     </section>
 
     <section id="projects">
       <div class="container">
-        <p class="section-kicker">// selected-projects</p>
-        <h2>安全项目</h2>
-        <p class="section-lead">重点展示能够体现“发现问题、解释问题、修复问题、验证结果”的项目，而不是把工具名字排成技能咒语。</p>
+        <p class="section-kicker">// flagship-projects</p>
+        <h2>核心 AI 项目</h2>
+        <p class="section-lead">
+          两个项目都按“可写入简历、可演示、可评测”的标准推进。模型只是其中一环，真正的目标是把数据、算法、后端和工程指标串起来。
+        </p>
+
         <div class="grid grid-2">
           <article class="card project-card">
-            <span class="project-tag">APPLICATION SECURITY</span>
-            <h3>Web 应用安全审计与修复</h3>
-            <p>在自建测试环境中梳理认证与接口权限，结合代码审计验证越权、注入与 XSS 风险；针对问题完成修复与复测，并整理风险清单、修复记录和回归用例。</p>
-            <div class="project-meta">Keywords: Web Security · Access Control · XSS · Injection · Secure Coding</div>
+            <span class="project-label">RAG / LLM APPLICATION</span>
+            <h3 class="project-name">DocMind</h3>
+            <div class="project-subtitle">Enterprise Document Intelligence & RAG Platform</div>
+            <p>面向企业文档知识库的智能问答系统，支持从文档接入到检索增强生成、权限控制与效果评测的一体化流程。</p>
+
+            <ul class="features">
+              <li>PDF、Word、Markdown 文档解析、切片、向量化与增量更新</li>
+              <li>关键词 + 向量混合检索，并结合重排序提升召回质量</li>
+              <li>支持多轮问答、原文引用与无依据回答拒答</li>
+              <li>知识库隔离、用户权限与操作审计</li>
+              <li>提示词注入防护与敏感信息过滤</li>
+              <li>在线模型 / 本地模型自由切换</li>
+              <li>评测 RAG 召回率、回答忠实度与响应时间</li>
+            </ul>
+
+            <div class="stack">
+              <span class="chip">Java</span>
+              <span class="chip">Spring Boot</span>
+              <span class="chip">Spring AI</span>
+              <span class="chip">Vue 3</span>
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">pgvector</span>
+              <span class="chip">Redis</span>
+              <span class="chip">MinIO</span>
+              <span class="chip">Docker</span>
+            </div>
           </article>
 
-          <article class="card project-card">
-            <span class="project-tag">DETECTION / LOG ANALYSIS</span>
-            <h3>Web 访问日志分析与异常检测</h3>
-            <p>使用 Python 解析 Web 访问日志，基于时间窗口和请求特征识别异常访问；设计规则与告警去重，并通过带标签样本评估误报与漏报。</p>
-            <div class="project-meta">Keywords: Python · Log Analysis · Detection · Alerting · Evaluation</div>
+          <article class="card project-card sentinel">
+            <span class="project-label">AI DETECTION / REAL-TIME SYSTEM</span>
+            <h3 class="project-name">SentinelFlow</h3>
+            <div class="project-subtitle">Intelligent Anomaly Detection & Observability Platform</div>
+            <p>面向日志、接口指标、交易数据与传感器时序数据的异常检测平台，将实时数据处理、机器学习检测与大模型分析结合。</p>
+
+            <ul class="features">
+              <li>实时数据接入、清洗与滑动窗口处理</li>
+              <li>Isolation Forest、XGBoost、Autoencoder 多模型对比</li>
+              <li>异常评分、告警聚合与误报抑制</li>
+              <li>使用 SHAP 解释异常原因和关键特征贡献</li>
+              <li>大模型自动生成异常摘要与处置建议</li>
+              <li>模型版本管理、在线推理和效果监控</li>
+              <li>评测 F1、误报率、检测延迟、吞吐量与 P95</li>
+            </ul>
+
+            <div class="stack">
+              <span class="chip">Python</span>
+              <span class="chip">FastAPI</span>
+              <span class="chip">scikit-learn</span>
+              <span class="chip">PyTorch</span>
+              <span class="chip">Spring Boot</span>
+              <span class="chip">Kafka / MQTT</span>
+              <span class="chip">PostgreSQL</span>
+              <span class="chip">Vue / ECharts</span>
+              <span class="chip">Docker</span>
+            </div>
           </article>
         </div>
 
-        <p class="section-kicker" style="margin-top:48px">// other-engineering</p>
-        <h2 style="font-size:clamp(1.7rem,4vw,2.5rem)">其他工程实践</h2>
-        <div class="grid grid-3">
-          <article class="card project-card">
-            <span class="project-tag">SECURITY / CRYPTOGRAPHY</span>
-            <h3>信息安全密码学实验</h3>
-            <p>围绕 DES、AES、RSA 等经典密码算法进行实现与实验，理解对称加密、公钥密码及基础密码学机制。</p>
-            <div class="project-meta">DES · AES · RSA · Cryptography</div>
-          </article>
-
-          <article class="card project-card">
-            <span class="project-tag">AI / MULTIMODAL</span>
-            <h3>MRED Streamlit</h3>
-            <p>音视频多模态情绪识别应用，对视频与音频进行特征处理和模型推理，并通过 Streamlit 构建交互式应用。</p>
-            <div class="project-meta">Python · Streamlit · Audio · Video · AI</div>
-          </article>
-
-          <article class="card project-card">
-            <span class="project-tag">SYSTEMS / COMPILER</span>
-            <h3>编译原理课程项目</h3>
-            <p>实现词法分析与语法分析相关功能，通过课程项目理解编译流程、形式语言和程序分析的基础机制。</p>
-            <div class="project-meta">Lexer · Parser · Compiler Fundamentals</div>
-          </article>
+        <div class="metric-row">
+          <div class="metric"><strong>Retrieval Quality</strong><span>Recall / reranking / faithfulness</span></div>
+          <div class="metric"><strong>Model Quality</strong><span>F1 / false-positive rate</span></div>
+          <div class="metric"><strong>System Latency</strong><span>response time / P95</span></div>
+          <div class="metric"><strong>Engineering</strong><span>deployment / monitoring / audit</span></div>
         </div>
       </div>
     </section>
 
-    <section id="stack">
+    <section id="skills">
       <div class="container">
-        <p class="section-kicker">// stack</p>
-        <h2>技术栈</h2>
-        <div class="card">
-          <div class="stack">
-            <span class="chip">Java</span>
-            <span class="chip">Python</span>
-            <span class="chip">Linux</span>
-            <span class="chip">Git / GitHub</span>
-            <span class="chip">TCP/IP</span>
-            <span class="chip">HTTP / HTTPS</span>
-            <span class="chip">Web Security</span>
-            <span class="chip">Cryptography</span>
-            <span class="chip">SQL</span>
-            <span class="chip">Secure Backend</span>
-            <span class="chip">Log Analysis</span>
-            <span class="chip">Docker</span>
-          </div>
+        <p class="section-kicker">// engineering-stack</p>
+        <h2>能力方向</h2>
+        <div class="grid grid-4">
+          <article class="card skill-card">
+            <div class="icon">🧠</div>
+            <h3>LLM & RAG</h3>
+            <p>文档切片、Embedding、向量检索、Hybrid Search、Rerank、引用与 RAG 评测。</p>
+          </article>
+          <article class="card skill-card">
+            <div class="icon">📈</div>
+            <h3>Machine Learning</h3>
+            <p>异常检测、树模型、Autoencoder、特征工程、模型评估与可解释分析。</p>
+          </article>
+          <article class="card skill-card">
+            <div class="icon">⚙️</div>
+            <h3>Backend Engineering</h3>
+            <p>Java / Spring Boot、Python / FastAPI、REST API、权限、缓存与服务集成。</p>
+          </article>
+          <article class="card skill-card">
+            <div class="icon">🚀</div>
+            <h3>Data & Infra</h3>
+            <p>PostgreSQL、pgvector、Redis、Kafka、MinIO、Docker 与在线服务部署。</p>
+          </article>
         </div>
       </div>
     </section>
@@ -493,8 +547,8 @@
         <div class="card contact-card">
           <div>
             <p class="section-kicker">// contact</p>
-            <h2 style="margin-bottom:0">Keep building. Keep learning.</h2>
-            <p>网络安全、后端开发或相关项目交流，可以通过 GitHub 或邮件联系我。</p>
+            <h2 style="margin-bottom:0">Build useful AI, not just demos.</h2>
+            <p>AI 工程、RAG、异常检测或后端系统相关交流，可以通过 GitHub 或邮件联系我。</p>
           </div>
           <div class="hero-actions" style="margin-top:0">
             <a class="btn btn-primary" href="mailto:3225431956@qq.com">Email</a>
@@ -506,7 +560,7 @@
   </main>
 
   <footer>
-    <div class="container">© 2026 Oliver Yang · Cybersecurity · Security Engineering · Backend</div>
+    <div class="container">© 2026 Oliver Yang · AI Engineering · RAG · Anomaly Detection</div>
   </footer>
 </body>
 </html>
