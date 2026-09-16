@@ -15,7 +15,6 @@
       --line:#dedad1;
       --blue:#315efb;
       --violet:#7b61ff;
-      --green:#1c9a68;
       --soft:#ece8df;
       --shadow:0 14px 36px rgba(25,25,22,.06);
     }
@@ -31,7 +30,6 @@
     }
     a{color:inherit}
     .wrap{width:min(1120px,calc(100% - 40px));margin:0 auto}
-
     header{
       position:sticky;top:0;z-index:20;
       background:rgba(246,244,239,.9);
@@ -46,7 +44,7 @@
 
     .hero{
       display:grid;
-      grid-template-columns:1.25fr .75fr;
+      grid-template-columns:1.2fr .8fr;
       gap:70px;
       align-items:end;
       padding:88px 0 74px;
@@ -67,12 +65,6 @@
       font-weight:650;
       letter-spacing:-.02em;
     }
-    .hero-copy{
-      max-width:700px;
-      margin:24px 0 0;
-      color:var(--muted);
-      font-size:1.02rem;
-    }
     .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
     .btn{
       display:inline-flex;align-items:center;justify-content:center;
@@ -82,7 +74,6 @@
     }
     .btn.primary{background:var(--ink);color:white}
     .btn:hover{transform:translateY(-2px)}
-
     .hero-side{display:grid;gap:20px;padding-bottom:4px}
     .mini{padding-top:13px;border-top:1px solid var(--line)}
     .mini small{display:block;color:var(--muted);font-size:.78rem;margin-bottom:5px}
@@ -92,7 +83,6 @@
     .section-head{display:grid;grid-template-columns:150px 1fr;gap:34px;margin-bottom:42px}
     .section-no{font-size:.8rem;color:var(--muted);letter-spacing:.08em;padding-top:8px}
     .section-title h2{margin:0;font-size:clamp(2rem,4vw,3.7rem);letter-spacing:-.045em;line-height:1.05}
-    .section-title p{max-width:760px;margin:14px 0 0;color:var(--muted)}
 
     .project{
       border:1px solid var(--line);
@@ -102,7 +92,7 @@
       box-shadow:var(--shadow);
     }
     .project+.project{margin-top:30px}
-    .project-layout{display:grid;grid-template-columns:.9fr 1.1fr;min-height:490px}
+    .project-layout{display:grid;grid-template-columns:.92fr 1.08fr;min-height:480px}
     .project-copy{padding:42px}
     .project-tag{
       display:inline-block;padding:5px 9px;border:1px solid var(--line);border-radius:999px;
@@ -120,7 +110,7 @@
     .preview{padding:26px;background:#111827;display:flex;align-items:center;justify-content:center;min-height:100%}
     .preview.sentinel{background:#171321}
     .window{
-      width:100%;height:100%;min-height:360px;border-radius:18px;
+      width:100%;height:100%;min-height:350px;border-radius:18px;
       background:#f8fafc;overflow:hidden;box-shadow:0 20px 48px rgba(0,0,0,.28)
     }
     .window.dark{background:#171827;color:#eef1f7}
@@ -220,9 +210,6 @@
         <div class="hero-label">个人主页 · 2026</div>
         <h1>杨童博</h1>
         <div class="hero-role">计算机专业 · 人工智能工程方向</div>
-        <p class="hero-copy">
-          当前重点完成两个可落地的 AI 工程项目：企业级文档智能与 RAG 平台 DocMind，以及面向实时数据的智能异常检测平台 SentinelFlow。关注模型能力，也关注后端、数据、评测与部署能否真正闭环。
-        </p>
         <div class="actions">
           <a class="btn primary" href="#projects">查看项目</a>
           <a class="btn" href="https://github.com/Yangtongbo" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
@@ -240,10 +227,7 @@
       <div class="wrap">
         <div class="section-head">
           <div class="section-no">01 / 项目</div>
-          <div class="section-title">
-            <h2>两个核心 AI 项目</h2>
-            <p>不把页面做成技能标签墙，直接用项目说明我正在解决什么问题、怎样实现，以及最终如何衡量效果。</p>
-          </div>
+          <div class="section-title"><h2>两个核心 AI 项目</h2></div>
         </div>
 
         <article class="project">
@@ -252,13 +236,13 @@
               <span class="project-tag">RAG · 企业知识库</span>
               <h3>DocMind</h3>
               <div class="project-sub">企业级文档智能与 RAG 平台</div>
-              <p class="project-desc">支持多格式文档接入、混合检索、多轮问答、原文引用、权限隔离与 RAG 评测，目标不是“让模型回答”，而是让回答有依据、可追溯、可维护。</p>
+              <p class="project-desc">支持企业文档接入、混合检索、重排序、多轮问答、原文引用、权限隔离与 RAG 效果评测。</p>
               <ul class="feature-list">
-                <li>PDF / Word / Markdown 解析、切片与增量更新</li>
-                <li>关键词 + 向量混合检索与重排序</li>
+                <li>PDF / Word / Markdown 解析、切片、向量化与增量更新</li>
+                <li>关键词 + 向量混合检索与 Rerank</li>
                 <li>多轮问答、原文引用与无依据拒答</li>
-                <li>知识库隔离、权限、操作审计与提示词注入防护</li>
-                <li>在线 / 本地模型切换及召回率、忠实度、响应时间评测</li>
+                <li>知识库隔离、权限、审计与敏感信息过滤</li>
+                <li>在线模型与本地模型切换</li>
               </ul>
               <div class="techs">
                 <span class="tech">Java</span><span class="tech">Spring Boot</span><span class="tech">Spring AI</span><span class="tech">Vue 3</span><span class="tech">PostgreSQL</span><span class="tech">pgvector</span><span class="tech">Redis</span><span class="tech">MinIO</span><span class="tech">Docker</span>
@@ -269,14 +253,13 @@
                 <div class="window-bar"><span class="wdot"></span><span class="wdot"></span><span class="wdot"></span></div>
                 <div class="doc-ui">
                   <div class="doc-side">
-                    <div class="doc-title">知识库</div>
+                    <div class="doc-title">DocMind</div>
                     <div class="doc-row active"></div><div class="doc-row"></div><div class="doc-row"></div><div class="doc-row"></div><div class="doc-row"></div>
                   </div>
                   <div class="doc-main">
                     <div class="fake-h"></div>
-                    <div class="bubble">请总结该文档中关于系统架构的核心内容。</div>
-                    <div class="bubble answer">系统由文档解析、检索、重排序、生成与引用模块组成，并通过权限层隔离不同知识库的数据访问。</div>
-                    <div class="bubble answer">回答依据来自检索到的原始文档片段，可继续追问并保留上下文。</div>
+                    <div class="bubble">根据企业知识库，查询相关制度与文档内容。</div>
+                    <div class="bubble answer">系统返回经过检索与重排序后的回答，并附带原文引用。</div>
                     <div class="sources"><div class="source"></div><div class="source"></div><div class="source"></div></div>
                   </div>
                 </div>
@@ -284,8 +267,8 @@
             </div>
           </div>
           <div class="project-footer">
-            <div class="pitem"><small>检索</small><strong>Hybrid Search + Rerank</strong></div>
-            <div class="pitem"><small>可信回答</small><strong>引用 · 拒答 · 忠实度评测</strong></div>
+            <div class="pitem"><small>核心能力</small><strong>RAG · 混合检索 · Rerank</strong></div>
+            <div class="pitem"><small>评测</small><strong>召回率 · 忠实度 · 响应时间</strong></div>
             <div class="pitem"><small>工程</small><strong>权限 · 审计 · 模型切换</strong></div>
           </div>
         </article>
@@ -293,16 +276,16 @@
         <article class="project">
           <div class="project-layout">
             <div class="project-copy">
-              <span class="project-tag">机器学习 · 实时检测</span>
+              <span class="project-tag">异常检测 · 实时系统</span>
               <h3>SentinelFlow</h3>
               <div class="project-sub">智能异常检测与可观测平台</div>
-              <p class="project-desc">面向系统日志、接口指标、交易数据或传感器时序数据，完成实时接入、异常检测、解释、告警聚合和模型监控，并用大模型生成更易读的异常摘要与处置建议。</p>
+              <p class="project-desc">面向日志、接口指标、交易数据与传感器时序数据，完成实时接入、异常检测、解释分析与告警闭环。</p>
               <ul class="feature-list">
                 <li>实时数据接入、清洗与滑动窗口处理</li>
-                <li>Isolation Forest / XGBoost / Autoencoder 模型对比</li>
+                <li>Isolation Forest / XGBoost / Autoencoder 对比</li>
                 <li>异常评分、告警聚合与误报抑制</li>
-                <li>SHAP 异常解释与大模型异常摘要</li>
-                <li>模型版本管理、在线推理与 F1 / P95 / 吞吐量评测</li>
+                <li>SHAP 异常原因解释</li>
+                <li>大模型生成异常摘要与处置建议</li>
               </ul>
               <div class="techs">
                 <span class="tech">Python</span><span class="tech">FastAPI</span><span class="tech">scikit-learn</span><span class="tech">PyTorch</span><span class="tech">Spring Boot</span><span class="tech">Kafka / MQTT</span><span class="tech">PostgreSQL</span><span class="tech">Vue / ECharts</span><span class="tech">Docker</span>
@@ -313,21 +296,21 @@
                 <div class="window-bar"><span class="wdot"></span><span class="wdot"></span><span class="wdot"></span></div>
                 <div class="dash">
                   <div class="metrics">
-                    <div class="mcard">F1<strong>0.91</strong></div>
-                    <div class="mcard">误报率<strong>3.8%</strong></div>
-                    <div class="mcard">P95<strong>86ms</strong></div>
-                    <div class="mcard">吞吐量<strong>2.4k/s</strong></div>
+                    <div class="mcard">检测事件<strong>1,284</strong></div>
+                    <div class="mcard">异常事件<strong>43</strong></div>
+                    <div class="mcard">P95<strong>126ms</strong></div>
+                    <div class="mcard">F1<strong>0.92</strong></div>
                   </div>
                   <div class="chart"><div class="gridline"></div><div class="line-a"></div><div class="line-b"></div><div class="spike"></div></div>
-                  <div class="alerts"><div class="alert">异常 #2041<br>请求频率短时陡增</div><div class="alert">SHAP 解释<br>req_rate / latency 贡献最高</div></div>
+                  <div class="alerts"><div class="alert">异常分数上升 · SHAP 解释</div><div class="alert">告警聚合 · 自动摘要</div></div>
                 </div>
               </div>
             </div>
           </div>
           <div class="project-footer">
-            <div class="pitem"><small>模型</small><strong>IF · XGBoost · Autoencoder</strong></div>
-            <div class="pitem"><small>解释</small><strong>SHAP + 大模型摘要</strong></div>
-            <div class="pitem"><small>指标</small><strong>F1 · 误报率 · 延迟 · 吞吐量</strong></div>
+            <div class="pitem"><small>模型</small><strong>IForest · XGBoost · Autoencoder</strong></div>
+            <div class="pitem"><small>评测</small><strong>F1 · 误报率 · P95</strong></div>
+            <div class="pitem"><small>工程</small><strong>实时流 · 在线推理 · 监控</strong></div>
           </div>
         </article>
       </div>
@@ -337,7 +320,7 @@
       <div class="wrap">
         <div class="section-head">
           <div class="section-no">02 / 能力</div>
-          <div class="section-title"><h2>当前能力结构</h2><p>围绕两个项目形成，而不是为了让页面显得“会很多”就随手堆一排图标。人类已经受够技能徽章墙了。</p></div>
+          <div class="section-title"><h2>当前能力结构</h2></div>
         </div>
         <div class="skills">
           <div class="skill"><strong>LLM 与 RAG</strong><p>文档切片、Embedding、向量检索、混合检索、Rerank、引用与 RAG 评测。</p></div>
@@ -355,14 +338,14 @@
           <div class="section-title"><h2>关于我</h2></div>
         </div>
         <div class="about">
-          <img class="avatar" src="https://avatars.githubusercontent.com/u/145834180?v=4" alt="杨童博 GitHub 头像" />
+          <img class="avatar" src="https://avatars.githubusercontent.com/u/145834180?v=4" alt="杨童博的 GitHub 头像" />
           <div>
-            <p>东北大学计算机专业学生，目前重点学习人工智能工程与后端开发。相比只训练一个模型，我更关注如何把模型放进真实的软件系统中，让数据接入、算法、服务、评测和部署形成完整闭环。</p>
-            <p>当前以 DocMind 和 SentinelFlow 为主线持续完善工程能力，并把项目逐步整理为可以演示、可以复现、可以在面试中讲清楚的完整作品。</p>
+            <p>东北大学计算机专业学生，当前学习方向为人工智能工程、RAG、异常检测与后端系统开发。</p>
+            <p>注重从数据处理、模型与算法，到后端服务、评测指标和部署监控的完整实现过程。</p>
             <div class="meta-grid">
-              <div class="meta"><small>专业</small><strong>计算机科学与技术</strong></div>
-              <div class="meta"><small>当前方向</small><strong>人工智能工程</strong></div>
-              <div class="meta"><small>主要语言</small><strong>Java · Python</strong></div>
+              <div class="meta"><small>学校</small><strong>东北大学</strong></div>
+              <div class="meta"><small>专业</small><strong>计算机</strong></div>
+              <div class="meta"><small>方向</small><strong>人工智能工程</strong></div>
               <div class="meta"><small>GitHub</small><strong>@Yangtongbo</strong></div>
             </div>
           </div>
@@ -372,9 +355,9 @@
 
     <section id="contact">
       <div class="wrap contact">
-        <h2>保持学习，也把项目真正做完。</h2>
+        <h2>联系与项目交流</h2>
         <div class="actions">
-          <a class="btn primary" href="mailto:3225431956@qq.com">邮件联系</a>
+          <a class="btn primary" href="mailto:3225431956@qq.com">邮箱</a>
           <a class="btn" href="https://github.com/Yangtongbo" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
         </div>
       </div>
