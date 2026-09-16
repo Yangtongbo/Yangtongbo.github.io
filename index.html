@@ -3,564 +3,667 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Oliver Yang 的个人主页，聚焦 AI Engineering、RAG、异常检测与智能系统开发。" />
-  <meta name="theme-color" content="#08111d" />
-  <title>Oliver Yang | AI Engineering</title>
+  <meta name="description" content="杨童博的个人主页，聚焦人工智能工程、RAG、异常检测与智能系统开发。" />
+  <meta name="theme-color" content="#f4f1ea" />
+  <title>杨童博 | 人工智能工程</title>
   <style>
     :root {
-      --bg: #07111d;
-      --panel: rgba(13, 27, 45, 0.90);
-      --panel-soft: rgba(11, 24, 40, 0.84);
-      --line: rgba(148, 180, 220, 0.18);
-      --text: #edf6ff;
-      --muted: #9fb2c7;
-      --cyan: #67e8f9;
-      --violet: #a78bfa;
-      --green: #86efac;
-      --orange: #fdba74;
-      --shadow: 0 24px 80px rgba(0, 0, 0, 0.30);
+      --paper: #f4f1ea;
+      --paper-2: #ebe7de;
+      --ink: #141414;
+      --muted: #66645f;
+      --line: #d7d2c8;
+      --white: #fffdf8;
+      --blue: #315efb;
+      --violet: #7657ff;
+      --green: #1e9b68;
+      --orange: #df7b37;
+      --shadow: 0 18px 50px rgba(24, 24, 20, .08);
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
-
     body {
       margin: 0;
-      color: var(--text);
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Inter, "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       line-height: 1.7;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background:
-        radial-gradient(circle at 12% 10%, rgba(103, 232, 249, .10), transparent 27%),
-        radial-gradient(circle at 88% 15%, rgba(167, 139, 250, .12), transparent 30%),
-        linear-gradient(180deg, #06101b 0%, #091421 50%, #06101b 100%);
+      -webkit-font-smoothing: antialiased;
     }
 
     a { color: inherit; }
-    .container { width: min(1160px, calc(100% - 40px)); margin: 0 auto; }
+    .wrap { width: min(1180px, calc(100% - 48px)); margin: 0 auto; }
 
-    nav {
+    header {
       position: sticky;
       top: 0;
-      z-index: 30;
-      background: rgba(7, 17, 29, .74);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid var(--line);
+      z-index: 50;
+      background: rgba(244, 241, 234, .88);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(20,20,20,.08);
     }
 
-    .nav-inner {
-      min-height: 68px;
+    .nav {
+      min-height: 72px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 24px;
     }
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    .name {
+      font-size: 1.05rem;
       font-weight: 800;
       text-decoration: none;
-      letter-spacing: .01em;
+      letter-spacing: -.02em;
     }
 
-    .brand-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      background: var(--cyan);
-      box-shadow: 0 0 18px rgba(103, 232, 249, .78);
-    }
-
-    .nav-links { display: flex; gap: 24px; }
+    .nav-links { display: flex; gap: 28px; }
     .nav-links a {
       color: var(--muted);
       text-decoration: none;
-      font-size: .94rem;
+      font-size: .92rem;
     }
-    .nav-links a:hover { color: var(--cyan); }
+    .nav-links a:hover { color: var(--ink); }
 
     .hero {
-      min-height: 78vh;
+      min-height: 720px;
       display: grid;
-      grid-template-columns: 1.08fr .92fr;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 70px;
       align-items: center;
-      gap: 54px;
-      padding: 92px 0 70px;
+      padding: 92px 0 86px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .eyebrow {
-      display: inline-flex;
+    .hero-kicker {
+      display: flex;
       align-items: center;
-      padding: 7px 12px;
-      border: 1px solid rgba(103, 232, 249, .28);
-      border-radius: 999px;
-      background: rgba(103, 232, 249, .06);
-      color: var(--cyan);
-      font-size: .88rem;
-      margin-bottom: 22px;
+      gap: 10px;
+      margin-bottom: 26px;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+
+    .hero-kicker::before {
+      content: "";
+      width: 30px;
+      height: 2px;
+      background: var(--blue);
     }
 
     h1 {
       margin: 0;
-      font-size: clamp(3rem, 7.4vw, 6rem);
+      max-width: 790px;
+      font-size: clamp(3.6rem, 7.2vw, 7.1rem);
       line-height: .98;
-      letter-spacing: -.055em;
+      letter-spacing: -.065em;
+      font-weight: 800;
     }
 
-    .gradient-text {
-      background: linear-gradient(90deg, var(--cyan), var(--violet), var(--green));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero-copy {
-      max-width: 720px;
-      margin: 26px 0 0;
+    .hero p {
+      max-width: 700px;
+      margin: 30px 0 0;
       color: var(--muted);
-      font-size: 1.07rem;
+      font-size: 1.08rem;
     }
 
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 12px;
       margin-top: 30px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       min-height: 46px;
       padding: 0 18px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
+      border-radius: 999px;
+      border: 1px solid var(--ink);
       text-decoration: none;
       font-weight: 700;
-      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      font-size: .92rem;
+      transition: .18s ease;
     }
+    .btn.primary { background: var(--ink); color: white; }
     .btn:hover { transform: translateY(-2px); }
-    .btn-primary {
-      border-color: rgba(103, 232, 249, .38);
-      background: linear-gradient(135deg, rgba(103, 232, 249, .16), rgba(167, 139, 250, .15));
-    }
-    .btn-secondary { color: var(--muted); }
 
-    .model-card {
-      border: 1px solid var(--line);
-      border-radius: 20px;
-      background: rgba(6, 15, 26, .91);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-      transform: rotate(1deg);
-    }
-
-    .model-head {
+    .hero-aside {
       display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--line);
-      color: #8195aa;
-      font-size: .82rem;
+      flex-direction: column;
+      gap: 22px;
+      padding-left: 34px;
+      border-left: 1px solid var(--line);
     }
 
-    .dot { width: 10px; height: 10px; border-radius: 50%; background: #39506a; }
-    .model-body {
-      padding: 24px;
-      font-family: "SFMono-Regular", Consolas, monospace;
-      font-size: .91rem;
+    .aside-label {
+      color: var(--muted);
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: .12em;
     }
 
-    .prompt { color: var(--cyan); }
-    .value { color: var(--green); }
-    .dim { color: #8095aa; }
-    .line { margin-bottom: 14px; }
+    .aside-value {
+      margin-top: 5px;
+      font-size: 1.02rem;
+      font-weight: 700;
+    }
 
-    section { padding: 80px 0; }
-    .section-kicker {
-      margin: 0 0 8px;
-      color: var(--cyan);
-      font-family: "SFMono-Regular", Consolas, monospace;
+    section { padding: 100px 0; }
+    .section-head {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 30px;
+      margin-bottom: 52px;
+      align-items: start;
+    }
+    .section-no {
+      color: var(--muted);
       font-size: .88rem;
+      letter-spacing: .1em;
     }
     h2 {
-      margin: 0 0 28px;
-      font-size: clamp(2rem, 5vw, 3.3rem);
-      letter-spacing: -.04em;
+      margin: 0;
+      font-size: clamp(2.4rem, 5vw, 4.5rem);
+      line-height: 1.05;
+      letter-spacing: -.05em;
     }
-    .section-lead {
-      max-width: 860px;
-      margin: -8px 0 34px;
+    .section-desc {
+      max-width: 760px;
+      margin: 16px 0 0;
       color: var(--muted);
     }
 
-    .grid { display: grid; gap: 18px; }
-    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-
-    .card {
+    .project {
+      padding: 42px;
       border: 1px solid var(--line);
-      border-radius: 18px;
-      padding: 24px;
-      background: linear-gradient(180deg, var(--panel), var(--panel-soft));
-      box-shadow: 0 14px 50px rgba(0, 0, 0, .12);
+      border-radius: 26px;
+      background: var(--white);
+      box-shadow: var(--shadow);
     }
 
-    .card h3 { margin: 0 0 10px; }
-    .card p { margin: 0; color: var(--muted); }
+    .project + .project { margin-top: 34px; }
 
-    .project-card {
-      position: relative;
-      overflow: hidden;
-      min-height: 520px;
-      display: flex;
-      flex-direction: column;
+    .project-top {
+      display: grid;
+      grid-template-columns: .82fr 1.18fr;
+      gap: 44px;
+      align-items: stretch;
     }
 
-    .project-card::after {
-      content: "";
-      position: absolute;
-      inset: auto -80px -110px auto;
-      width: 240px;
-      height: 240px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(103, 232, 249, .13), transparent 67%);
-      pointer-events: none;
-    }
-
-    .project-card.sentinel::after {
-      background: radial-gradient(circle, rgba(167, 139, 250, .15), transparent 67%);
-    }
-
-    .project-label {
+    .project-index {
       display: inline-flex;
       width: fit-content;
       padding: 5px 10px;
-      margin-bottom: 18px;
+      border: 1px solid var(--line);
       border-radius: 999px;
-      border: 1px solid rgba(103, 232, 249, .23);
-      background: rgba(103, 232, 249, .06);
-      color: #a5f3fc;
-      font-family: "SFMono-Regular", Consolas, monospace;
-      font-size: .78rem;
-    }
-
-    .sentinel .project-label {
-      border-color: rgba(167, 139, 250, .25);
-      background: rgba(167, 139, 250, .07);
-      color: #d6c7ff;
-    }
-
-    .project-name {
-      margin: 0;
-      font-size: 2rem;
-      letter-spacing: -.035em;
-    }
-
-    .project-subtitle {
-      margin: 7px 0 22px;
-      color: #c7d5e4;
-      font-weight: 700;
-    }
-
-    .features {
-      display: grid;
-      gap: 10px;
-      margin: 8px 0 24px;
-      padding: 0;
-      list-style: none;
-    }
-
-    .features li {
-      position: relative;
-      padding-left: 20px;
       color: var(--muted);
-      font-size: .94rem;
-    }
-    .features li::before {
-      content: "›";
-      position: absolute;
-      left: 0;
-      color: var(--green);
-      font-weight: 800;
+      font-size: .78rem;
+      margin-bottom: 20px;
     }
 
-    .stack {
+    .project h3 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -.055em;
+    }
+
+    .project-sub {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .project-summary {
+      margin-top: 28px;
+      color: #3b3a37;
+      font-size: 1rem;
+    }
+
+    .techs {
       display: flex;
       flex-wrap: wrap;
-      gap: 9px;
-      margin-top: auto;
+      gap: 8px;
+      margin-top: 28px;
     }
 
-    .chip {
-      padding: 7px 10px;
-      border: 1px solid var(--line);
-      border-radius: 9px;
-      background: rgba(255,255,255,.025);
-      color: #c9d7e6;
-      font-size: .82rem;
+    .tech {
+      padding: 7px 11px;
+      border-radius: 999px;
+      background: var(--paper-2);
+      color: #4b4944;
+      font-size: .79rem;
     }
 
-    .metric-row {
+    .preview {
+      min-height: 390px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(20,20,20,.08);
+      background: #0e1420;
+      padding: 18px;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 14px;
-      margin-top: 22px;
+      grid-template-rows: auto 1fr;
+      box-shadow: inset 0 1px rgba(255,255,255,.03);
     }
-    .metric {
-      padding: 15px;
-      border: 1px solid var(--line);
-      border-radius: 12px;
-      background: rgba(255,255,255,.02);
-    }
-    .metric strong { display: block; color: var(--text); font-size: .96rem; }
-    .metric span { color: var(--muted); font-size: .79rem; }
 
-    .about-box {
-      display: grid;
-      grid-template-columns: .68fr 1.32fr;
-      gap: 34px;
-      align-items: center;
+    .preview.docmind {
+      background: linear-gradient(145deg, #111827, #16213a 58%, #101827);
     }
-    .avatar {
-      width: min(230px, 100%);
-      aspect-ratio: 1;
-      border-radius: 28px;
-      object-fit: cover;
-      border: 1px solid rgba(103, 232, 249, .26);
-      box-shadow: 0 20px 70px rgba(0,0,0,.24);
+    .preview.sentinel {
+      background: linear-gradient(145deg, #11131b, #251a38 58%, #171522);
     }
-    .about-copy p { margin: 0 0 14px; color: var(--muted); }
-    .about-copy strong { color: var(--text); }
 
-    .skill-card .icon { font-size: 1.35rem; margin-bottom: 12px; }
-    .skill-card h3 { font-size: 1.02rem; }
-    .skill-card p { font-size: .9rem; }
-
-    .contact-card {
+    .preview-bar {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-      padding: 34px;
+      gap: 7px;
+      padding-bottom: 14px;
     }
-    .contact-card p { margin: 8px 0 0; color: var(--muted); }
+    .preview-dot { width: 8px; height: 8px; border-radius: 50%; background: #667085; }
+
+    .doc-ui {
+      display: grid;
+      grid-template-columns: 190px 1fr;
+      gap: 14px;
+      min-height: 330px;
+    }
+
+    .side-ui, .main-ui {
+      border-radius: 14px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.07);
+    }
+
+    .side-ui { padding: 14px; }
+    .side-title {
+      color: #dfe8ff;
+      font-size: .78rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .side-row {
+      height: 30px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      background: rgba(255,255,255,.045);
+    }
+    .side-row.active { background: rgba(49,94,251,.35); }
+
+    .main-ui { padding: 18px; }
+    .fake-title {
+      width: 44%;
+      height: 18px;
+      border-radius: 6px;
+      background: rgba(255,255,255,.75);
+      margin-bottom: 20px;
+    }
+    .bubble {
+      padding: 13px 14px;
+      border-radius: 12px;
+      color: #c8d4ea;
+      background: rgba(255,255,255,.055);
+      font-size: .75rem;
+      margin-bottom: 12px;
+    }
+    .bubble.answer { background: rgba(49,94,251,.15); border: 1px solid rgba(93,128,255,.2); }
+    .source-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
+    .source { height: 52px; border-radius: 9px; background: rgba(255,255,255,.05); }
+
+    .chart-ui {
+      display: grid;
+      grid-template-rows: 74px 1fr 100px;
+      gap: 12px;
+      min-height: 330px;
+    }
+    .metric-ui { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .metric-box, .chart-box, .alert-box {
+      border-radius: 13px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.07);
+    }
+    .metric-box { padding: 13px; color: #d8d2ee; font-size: .72rem; }
+    .metric-box strong { display: block; font-size: 1.05rem; margin-top: 4px; color: white; }
+
+    .chart-box { padding: 16px; position: relative; overflow: hidden; }
+    .chart-grid {
+      position: absolute;
+      inset: 16px;
+      background: repeating-linear-gradient(to bottom, transparent 0 42px, rgba(255,255,255,.04) 43px);
+    }
+    .chart-line {
+      position: absolute;
+      left: 5%; right: 4%; top: 50%;
+      height: 80px;
+      border-top: 3px solid #9c7cff;
+      border-radius: 50%;
+      transform: skewY(-9deg) rotate(-3deg);
+      box-shadow: 50px -18px 0 -1px transparent;
+    }
+    .spike {
+      position: absolute;
+      width: 4px;
+      height: 96px;
+      left: 67%; bottom: 24px;
+      background: #ff9770;
+      box-shadow: 0 0 20px rgba(255,151,112,.5);
+    }
+    .alert-box { padding: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .alert-mini { border-radius: 9px; background: rgba(255,255,255,.045); padding: 10px; color: #cfc9df; font-size: .7rem; }
+
+    .project-detail {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 38px;
+      padding-top: 34px;
+      border-top: 1px solid var(--line);
+    }
+
+    .detail h4 { margin: 0 0 10px; font-size: .95rem; }
+    .detail p { margin: 0; color: var(--muted); font-size: .9rem; }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .skill {
+      min-height: 180px;
+      padding: 22px;
+      border-top: 2px solid var(--ink);
+      background: rgba(255,255,255,.32);
+    }
+    .skill strong { display: block; margin-bottom: 12px; font-size: 1.02rem; }
+    .skill p { margin: 0; color: var(--muted); font-size: .9rem; }
+
+    .about {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+    .avatar {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: 20px;
+      filter: grayscale(10%);
+    }
+    .about-copy { font-size: 1.08rem; }
+    .about-copy p { margin-top: 0; color: #3e3d39; }
+    .about-meta {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 28px;
+    }
+    .meta { padding-top: 12px; border-top: 1px solid var(--line); }
+    .meta small { display: block; color: var(--muted); }
+    .meta strong { display: block; margin-top: 4px; }
+
+    .contact-box {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 42px 0 10px;
+      border-top: 1px solid var(--line);
+    }
+    .contact-box h2 { max-width: 700px; }
+    .contact-links { display: flex; gap: 12px; flex-wrap: wrap; }
 
     footer {
-      padding: 34px 0 52px;
-      color: #6d8196;
-      border-top: 1px solid var(--line);
-      font-size: .88rem;
+      padding: 34px 0 46px;
+      color: var(--muted);
+      font-size: .86rem;
     }
 
     @media (max-width: 920px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; padding-top: 72px; }
-      .model-card { max-width: 640px; transform: none; }
-      .grid-4 { grid-template-columns: repeat(2, 1fr); }
-      .about-box { grid-template-columns: 1fr; }
-      .avatar { width: 160px; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-aside { border-left: 0; border-top: 1px solid var(--line); padding: 28px 0 0; display: grid; grid-template-columns: repeat(2,1fr); }
+      .section-head { grid-template-columns: 1fr; gap: 10px; }
+      .project-top { grid-template-columns: 1fr; }
+      .skills { grid-template-columns: repeat(2,1fr); }
+      .about { grid-template-columns: 200px 1fr; }
     }
 
-    @media (max-width: 700px) {
-      .container { width: min(100% - 24px, 1160px); }
+    @media (max-width: 680px) {
+      .wrap { width: min(100% - 24px, 1180px); }
       .nav-links { display: none; }
-      .grid-2, .grid-4, .metric-row { grid-template-columns: 1fr; }
-      .project-card { min-height: auto; }
-      .contact-card { flex-direction: column; align-items: flex-start; }
-      section { padding: 62px 0; }
+      .hero { padding: 70px 0 60px; }
+      h1 { font-size: clamp(3.2rem, 17vw, 5rem); }
+      section { padding: 72px 0; }
+      .project { padding: 22px; border-radius: 20px; }
+      .doc-ui { grid-template-columns: 1fr; }
+      .side-ui { display: none; }
+      .metric-ui { grid-template-columns: repeat(2,1fr); }
+      .project-detail, .skills, .about-meta { grid-template-columns: 1fr; }
+      .about { grid-template-columns: 1fr; }
+      .avatar { width: 150px; }
+      .contact-box { align-items: flex-start; flex-direction: column; }
     }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="container nav-inner">
-      <a class="brand" href="#top"><span class="brand-dot"></span>Oliver Yang</a>
-      <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-      </div>
+  <header>
+    <div class="wrap nav">
+      <a class="name" href="#top">杨童博</a>
+      <nav class="nav-links">
+        <a href="#projects">项目</a>
+        <a href="#skills">能力</a>
+        <a href="#about">关于</a>
+        <a href="#contact">联系</a>
+      </nav>
     </div>
-  </nav>
+  </header>
 
   <main id="top">
-    <div class="container hero">
+    <div class="wrap hero">
       <div>
-        <div class="eyebrow">🤖 AI Engineering · RAG · Anomaly Detection</div>
-        <h1>Build AI.<br><span class="gradient-text">Ship systems.</span></h1>
-        <p class="hero-copy">
-          你好，我是杨童博（Oliver Yang），东北大学计算机专业学生。当前重点投入 AI 工程与智能系统开发，
-          正在围绕企业知识库问答与智能异常检测完成两个完整项目，关注的不只是“模型能跑”，更是检索、推理、评测、部署和系统工程能否真正闭环。
+        <div class="hero-kicker">计算机专业 · 人工智能工程方向</div>
+        <h1>把 AI 做成<br>真正可用的系统。</h1>
+        <p>
+          我是杨童博，东北大学计算机专业学生。目前主要围绕 RAG、异常检测与 AI 工程化开展项目实践，
+          关注模型之外的数据流、系统架构、评测指标与实际落地。
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#projects">查看核心项目</a>
-          <a class="btn btn-secondary" href="https://github.com/Yangtongbo" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          <a class="btn primary" href="#projects">查看项目</a>
+          <a class="btn" href="https://github.com/Yangtongbo" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
         </div>
       </div>
 
-      <div class="model-card" aria-label="AI engineering profile">
-        <div class="model-head">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <span style="margin-left:8px">ai-engineer.profile</span>
+      <aside class="hero-aside">
+        <div>
+          <div class="aside-label">当前方向</div>
+          <div class="aside-value">人工智能工程 / 智能系统</div>
         </div>
-        <div class="model-body">
-          <div class="line"><span class="prompt">name</span> = <span class="value">"Oliver Yang"</span></div>
-          <div class="line"><span class="prompt">focus</span> = [<span class="value">"RAG"</span>, <span class="value">"Anomaly Detection"</span>, <span class="value">"AI Systems"</span>]</div>
-          <div class="line"><span class="prompt">projects</span> = [<span class="value">"DocMind"</span>, <span class="value">"SentinelFlow"</span>]</div>
-          <div class="line"><span class="prompt">backend</span> = <span class="value">"Java / Spring Boot / FastAPI"</span></div>
-          <div class="line"><span class="prompt">infra</span> = <span class="value">"PostgreSQL / Redis / Kafka / Docker"</span></div>
-          <div class="line dim"># turning models into usable engineering systems</div>
+        <div>
+          <div class="aside-label">核心项目</div>
+          <div class="aside-value">DocMind · SentinelFlow</div>
         </div>
-      </div>
+        <div>
+          <div class="aside-label">主要技术</div>
+          <div class="aside-value">Java · Python · Spring Boot · FastAPI</div>
+        </div>
+        <div>
+          <div class="aside-label">工程基础</div>
+          <div class="aside-value">PostgreSQL · Redis · Kafka · Docker</div>
+        </div>
+      </aside>
     </div>
 
-    <section id="about">
-      <div class="container">
-        <p class="section-kicker">// about</p>
-        <h2>关于我</h2>
-        <div class="card about-box">
-          <img class="avatar" src="https://avatars.githubusercontent.com/u/145834180?v=4" alt="Oliver Yang GitHub avatar" />
-          <div class="about-copy">
-            <p>
-              我目前主要关注<strong>AI 工程化落地</strong>。相比只训练一个模型，我更感兴趣的是如何把模型放进真实的软件系统里，完成数据接入、检索、推理、评测、监控和部署。
-            </p>
-            <p>
-              当前两个核心项目分别覆盖 <strong>RAG 企业知识库</strong> 与 <strong>实时异常检测</strong>，同时结合 Java 后端、Python AI 服务、数据库、消息队列和 Docker，建立完整的工程实现能力。
-            </p>
+    <section id="projects">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-no">01 / 核心项目</div>
+          <div>
+            <h2>项目不是功能清单，<br>而是完整的工程闭环。</h2>
+            <p class="section-desc">两个项目分别覆盖企业知识库问答与实时异常检测，重点体现检索、模型、后端、数据基础设施和评测能力。</p>
           </div>
         </div>
-      </div>
-    </section>
 
-    <section id="projects">
-      <div class="container">
-        <p class="section-kicker">// flagship-projects</p>
-        <h2>核心 AI 项目</h2>
-        <p class="section-lead">
-          两个项目都按“可写入简历、可演示、可评测”的标准推进。模型只是其中一环，真正的目标是把数据、算法、后端和工程指标串起来。
-        </p>
-
-        <div class="grid grid-2">
-          <article class="card project-card">
-            <span class="project-label">RAG / LLM APPLICATION</span>
-            <h3 class="project-name">DocMind</h3>
-            <div class="project-subtitle">Enterprise Document Intelligence & RAG Platform</div>
-            <p>面向企业文档知识库的智能问答系统，支持从文档接入到检索增强生成、权限控制与效果评测的一体化流程。</p>
-
-            <ul class="features">
-              <li>PDF、Word、Markdown 文档解析、切片、向量化与增量更新</li>
-              <li>关键词 + 向量混合检索，并结合重排序提升召回质量</li>
-              <li>支持多轮问答、原文引用与无依据回答拒答</li>
-              <li>知识库隔离、用户权限与操作审计</li>
-              <li>提示词注入防护与敏感信息过滤</li>
-              <li>在线模型 / 本地模型自由切换</li>
-              <li>评测 RAG 召回率、回答忠实度与响应时间</li>
-            </ul>
-
-            <div class="stack">
-              <span class="chip">Java</span>
-              <span class="chip">Spring Boot</span>
-              <span class="chip">Spring AI</span>
-              <span class="chip">Vue 3</span>
-              <span class="chip">PostgreSQL</span>
-              <span class="chip">pgvector</span>
-              <span class="chip">Redis</span>
-              <span class="chip">MinIO</span>
-              <span class="chip">Docker</span>
+        <article class="project">
+          <div class="project-top">
+            <div>
+              <span class="project-index">项目 01</span>
+              <h3>DocMind</h3>
+              <div class="project-sub">企业级智能文档与 RAG 知识库平台</div>
+              <p class="project-summary">
+                面向企业文档场景，将 PDF、Word、Markdown 等非结构化资料转化为可检索、可追溯、可评测的智能知识库，支持多轮问答、原文引用、权限隔离与安全防护。
+              </p>
+              <div class="techs">
+                <span class="tech">Java</span><span class="tech">Spring Boot</span><span class="tech">Spring AI</span>
+                <span class="tech">Vue 3</span><span class="tech">PostgreSQL</span><span class="tech">pgvector</span>
+                <span class="tech">Redis</span><span class="tech">MinIO</span><span class="tech">Docker</span>
+              </div>
             </div>
-          </article>
 
-          <article class="card project-card sentinel">
-            <span class="project-label">AI DETECTION / REAL-TIME SYSTEM</span>
-            <h3 class="project-name">SentinelFlow</h3>
-            <div class="project-subtitle">Intelligent Anomaly Detection & Observability Platform</div>
-            <p>面向日志、接口指标、交易数据与传感器时序数据的异常检测平台，将实时数据处理、机器学习检测与大模型分析结合。</p>
-
-            <ul class="features">
-              <li>实时数据接入、清洗与滑动窗口处理</li>
-              <li>Isolation Forest、XGBoost、Autoencoder 多模型对比</li>
-              <li>异常评分、告警聚合与误报抑制</li>
-              <li>使用 SHAP 解释异常原因和关键特征贡献</li>
-              <li>大模型自动生成异常摘要与处置建议</li>
-              <li>模型版本管理、在线推理和效果监控</li>
-              <li>评测 F1、误报率、检测延迟、吞吐量与 P95</li>
-            </ul>
-
-            <div class="stack">
-              <span class="chip">Python</span>
-              <span class="chip">FastAPI</span>
-              <span class="chip">scikit-learn</span>
-              <span class="chip">PyTorch</span>
-              <span class="chip">Spring Boot</span>
-              <span class="chip">Kafka / MQTT</span>
-              <span class="chip">PostgreSQL</span>
-              <span class="chip">Vue / ECharts</span>
-              <span class="chip">Docker</span>
+            <div class="preview docmind" aria-label="DocMind interface preview">
+              <div class="preview-bar"><span class="preview-dot"></span><span class="preview-dot"></span><span class="preview-dot"></span></div>
+              <div class="doc-ui">
+                <div class="side-ui">
+                  <div class="side-title">知识库</div>
+                  <div class="side-row active"></div><div class="side-row"></div><div class="side-row"></div><div class="side-row"></div>
+                  <div class="side-title" style="margin-top:18px">文档</div>
+                  <div class="side-row"></div><div class="side-row"></div><div class="side-row"></div>
+                </div>
+                <div class="main-ui">
+                  <div class="fake-title"></div>
+                  <div class="bubble">如何根据上传的制度文档说明报销审批流程？</div>
+                  <div class="bubble answer">系统通过混合检索与重排序召回相关片段，并生成带原文引用的回答。</div>
+                  <div class="bubble answer">当知识库缺少依据时，拒绝生成无来源结论。</div>
+                  <div class="source-row"><div class="source"></div><div class="source"></div><div class="source"></div></div>
+                </div>
+              </div>
             </div>
-          </article>
-        </div>
+          </div>
 
-        <div class="metric-row">
-          <div class="metric"><strong>Retrieval Quality</strong><span>Recall / reranking / faithfulness</span></div>
-          <div class="metric"><strong>Model Quality</strong><span>F1 / false-positive rate</span></div>
-          <div class="metric"><strong>System Latency</strong><span>response time / P95</span></div>
-          <div class="metric"><strong>Engineering</strong><span>deployment / monitoring / audit</span></div>
-        </div>
+          <div class="project-detail">
+            <div class="detail">
+              <h4>检索与生成</h4>
+              <p>文档解析、切片、向量化、增量更新，结合关键词与向量混合检索及重排序。</p>
+            </div>
+            <div class="detail">
+              <h4>工程与安全</h4>
+              <p>用户权限、知识库隔离、操作审计、提示词注入防护与敏感信息过滤。</p>
+            </div>
+            <div class="detail">
+              <h4>评测</h4>
+              <p>围绕 RAG 召回率、回答忠实度与响应时间建立可量化评测流程。</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="project">
+          <div class="project-top">
+            <div>
+              <span class="project-index">项目 02</span>
+              <h3>SentinelFlow</h3>
+              <div class="project-sub">智能异常检测与可观测平台</div>
+              <p class="project-summary">
+                面向系统日志、接口指标、交易数据与传感器时序数据，构建从实时接入、特征处理、模型检测、告警聚合到大模型分析的一体化异常检测流程。
+              </p>
+              <div class="techs">
+                <span class="tech">Python</span><span class="tech">FastAPI</span><span class="tech">scikit-learn</span>
+                <span class="tech">PyTorch</span><span class="tech">Spring Boot</span><span class="tech">Kafka / MQTT</span>
+                <span class="tech">PostgreSQL</span><span class="tech">Vue / ECharts</span><span class="tech">Docker</span>
+              </div>
+            </div>
+
+            <div class="preview sentinel" aria-label="SentinelFlow dashboard preview">
+              <div class="preview-bar"><span class="preview-dot"></span><span class="preview-dot"></span><span class="preview-dot"></span></div>
+              <div class="chart-ui">
+                <div class="metric-ui">
+                  <div class="metric-box">异常事件<strong>28</strong></div>
+                  <div class="metric-box">F1<strong>0.91</strong></div>
+                  <div class="metric-box">误报率<strong>3.8%</strong></div>
+                  <div class="metric-box">P95<strong>84 ms</strong></div>
+                </div>
+                <div class="chart-box"><div class="chart-grid"></div><div class="chart-line"></div><div class="spike"></div></div>
+                <div class="alert-box">
+                  <div class="alert-mini">SHAP 原因解释<br><strong style="color:white">request_rate ↑</strong></div>
+                  <div class="alert-mini">大模型处置摘要<br><strong style="color:white">建议检查接口突发流量</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-detail">
+            <div class="detail">
+              <h4>实时检测</h4>
+              <p>实时数据接入、清洗、滑动窗口处理，并对异常评分和告警进行聚合与误报抑制。</p>
+            </div>
+            <div class="detail">
+              <h4>模型与解释</h4>
+              <p>对比 Isolation Forest、XGBoost、Autoencoder，并使用 SHAP 分析异常原因。</p>
+            </div>
+            <div class="detail">
+              <h4>系统指标</h4>
+              <p>评测 F1、误报率、检测延迟、吞吐量与 P95，同时支持模型版本与在线推理监控。</p>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
     <section id="skills">
-      <div class="container">
-        <p class="section-kicker">// engineering-stack</p>
-        <h2>能力方向</h2>
-        <div class="grid grid-4">
-          <article class="card skill-card">
-            <div class="icon">🧠</div>
-            <h3>LLM & RAG</h3>
-            <p>文档切片、Embedding、向量检索、Hybrid Search、Rerank、引用与 RAG 评测。</p>
-          </article>
-          <article class="card skill-card">
-            <div class="icon">📈</div>
-            <h3>Machine Learning</h3>
-            <p>异常检测、树模型、Autoencoder、特征工程、模型评估与可解释分析。</p>
-          </article>
-          <article class="card skill-card">
-            <div class="icon">⚙️</div>
-            <h3>Backend Engineering</h3>
-            <p>Java / Spring Boot、Python / FastAPI、REST API、权限、缓存与服务集成。</p>
-          </article>
-          <article class="card skill-card">
-            <div class="icon">🚀</div>
-            <h3>Data & Infra</h3>
-            <p>PostgreSQL、pgvector、Redis、Kafka、MinIO、Docker 与在线服务部署。</p>
-          </article>
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-no">02 / 能力结构</div>
+          <div><h2>从模型，到能运行的系统。</h2></div>
+        </div>
+        <div class="skills">
+          <div class="skill"><strong>大模型与 RAG</strong><p>文档切片、Embedding、向量检索、混合检索、Rerank、引用与忠实度评测。</p></div>
+          <div class="skill"><strong>机器学习</strong><p>异常检测、树模型、Autoencoder、特征工程、模型评估与可解释分析。</p></div>
+          <div class="skill"><strong>后端开发</strong><p>Java / Spring Boot、Python / FastAPI、REST API、权限、缓存和服务集成。</p></div>
+          <div class="skill"><strong>数据与基础设施</strong><p>PostgreSQL、pgvector、Redis、Kafka、MinIO、Docker 与在线部署。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="wrap">
+        <div class="section-head">
+          <div class="section-no">03 / 关于我</div>
+          <div><h2>正在把计算机基础，<br>变成解决问题的能力。</h2></div>
+        </div>
+        <div class="about">
+          <img class="avatar" src="https://avatars.githubusercontent.com/u/145834180?v=4" alt="杨童博 GitHub 头像" />
+          <div class="about-copy">
+            <p>我目前就读于东北大学计算机专业，正在重点投入人工智能工程、智能系统与后端开发方向。</p>
+            <p>相比只展示模型效果，我更关注一个 AI 项目如何从数据、算法走到真正可运行的软件系统，包括检索、接口、数据库、消息队列、评测、部署和监控。</p>
+            <div class="about-meta">
+              <div class="meta"><small>学校 / 专业</small><strong>东北大学 · 计算机</strong></div>
+              <div class="meta"><small>当前方向</small><strong>人工智能工程 / 智能系统</strong></div>
+              <div class="meta"><small>主要语言</small><strong>Java / Python</strong></div>
+              <div class="meta"><small>GitHub</small><strong>@Yangtongbo</strong></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <section id="contact">
-      <div class="container">
-        <div class="card contact-card">
-          <div>
-            <p class="section-kicker">// contact</p>
-            <h2 style="margin-bottom:0">Build useful AI, not just demos.</h2>
-            <p>AI 工程、RAG、异常检测或后端系统相关交流，可以通过 GitHub 或邮件联系我。</p>
-          </div>
-          <div class="hero-actions" style="margin-top:0">
-            <a class="btn btn-primary" href="mailto:3225431956@qq.com">Email</a>
-            <a class="btn btn-secondary" href="https://github.com/Yangtongbo" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-          </div>
+      <div class="wrap contact-box">
+        <div>
+          <div class="section-no">04 / 联系</div>
+          <h2>继续做能落地的<br>人工智能项目。</h2>
+        </div>
+        <div class="contact-links">
+          <a class="btn primary" href="mailto:3225431956@qq.com">邮件联系</a>
+          <a class="btn" href="https://github.com/Yangtongbo" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">© 2026 Oliver Yang · AI Engineering · RAG · Anomaly Detection</div>
+    <div class="wrap">© 2026 杨童博 · 人工智能工程 · RAG · 异常检测</div>
   </footer>
 </body>
 </html>
